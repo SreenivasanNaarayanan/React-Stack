@@ -145,22 +145,16 @@ describe('application logic', () => {
     it('creates a tally for the voted entry', () => {
 
       const state = Map({
-        votes: Map({
-          pair: List.of('Batman Begins', 'Dark Knight')
-        }),
-        entries: List.of('Dark Knight Returns')
+        pair: List.of('Batman Begins', 'Dark Knight')
       });
 
       const nextState = vote(state, 'Dark Knight');
 
       let expectedNextState = Map({
-        votes: Map({
-          pair: List.of('Batman Begins', 'Dark Knight'),
-          tally: Map({
-            'Dark Knight': 1
-          })
-        }),
-        entries: List.of('Dark Knight Returns')
+        pair: List.of('Batman Begins', 'Dark Knight'),
+        tally: Map({
+          'Dark Knight': 1
+        })
       });
 
       expect(nextState).to.equal(expectedNextState);
@@ -170,27 +164,21 @@ describe('application logic', () => {
     it('should add to the existing tally of the voting entry', () => {
 
       const state = Map({
-        votes: Map({
-          pair: List.of('Batman Begins', 'Dark Knight'),
-          tally: Map({
-            'Dark Knight': 3,
-            'Batman Begins': 1
-          })
-        }),
-        entries: List.of('Dark Knight Returns')
+        pair: List.of('Batman Begins', 'Dark Knight'),
+        tally: Map({
+          'Dark Knight': 3,
+          'Batman Begins': 1
+        })
       });
 
       const nextState = vote(state, 'Dark Knight');
 
       let expectedNextState = Map({
-        votes: Map({
-          pair: List.of('Batman Begins', 'Dark Knight'),
-          tally: Map({
-            'Dark Knight': 4,
-            'Batman Begins': 1
-          })
-        }),
-        entries: List.of('Dark Knight Returns')
+        pair: List.of('Batman Begins', 'Dark Knight'),
+        tally: Map({
+          'Dark Knight': 4,
+          'Batman Begins': 1
+        })
       });
 
       expect(nextState).to.equal(expectedNextState);

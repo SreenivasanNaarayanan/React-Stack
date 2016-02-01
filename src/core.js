@@ -33,8 +33,8 @@ export function next(state) {
   if (entries.size === 1) {
 
     return state.remove('votes')
-      .remove('entries')
-      .set('winner', entries.first());
+                .remove('entries')
+                .set('winner', entries.first());
 
   }
 
@@ -47,10 +47,9 @@ export function next(state) {
 
 }
 
-export function vote(state, entry) {
-
-  return state.updateIn([
-    'votes', 'tally', entry
+export function vote(voteState, entry) {
+  return voteState.updateIn([
+    'tally', entry
   ], 0, tally => tally + 1);
 
 }
