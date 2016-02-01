@@ -1,3 +1,4 @@
+export const INITIAL_STATE = Map();
 import {List, Map} from 'immutable';
 
 function getWinners(votes) {
